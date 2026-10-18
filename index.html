@@ -129,6 +129,18 @@
   .task span.d{display:block;color:var(--ink2);font-size:.94rem;margin-top:3px;max-width:62ch}
   .task input:checked ~ .body b{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--line2)}
 
+  /* 화면 캡처 + 눌러야 할 곳 표시 */
+  .shot{margin:0 4px 16px 67px;max-width:640px}
+  .shot-frame{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+  .shot-frame img{display:block;width:100%;height:auto}
+  .shot-mark{position:absolute;border:3px solid var(--signal);border-radius:10px;box-shadow:0 0 0 4px rgba(169,62,40,.18)}
+  .shot-mark span{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--signal);color:#fff;font-size:.78rem;font-weight:700;line-height:1;padding:5px 8px;border-radius:999px}
+  .shot-mark.tag-below span{top:calc(100% + 6px)}
+  .shot-mark.tag-above span{bottom:calc(100% + 6px)}
+  .shot-mark.tag-right span{left:calc(100% + 10px);top:50%;transform:translateY(-50%)}
+  .shot figcaption{font-size:.88rem;color:var(--ink2);margin-top:7px}
+  .shot figcaption b{color:var(--signal)}
+
   .note,.warn,.tip{border-radius:var(--radius);padding:14px 18px;margin:18px 0;font-size:.95rem}
   .note{background:var(--teal-soft);border-left:4px solid var(--teal)}
   .warn{background:var(--signal-soft);border-left:4px solid var(--signal)}
@@ -202,6 +214,7 @@
     .task{grid-template-columns:24px 1fr;gap:9px}
     .task .num{display:none}
     .task .body{grid-column:2}
+    .shot{margin-left:37px}
     footer{padding:0 16px 40px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -217,6 +230,7 @@
     .step{display:block!important;border:0;padding:0;margin:0 0 26px;break-after:page}
     .step[hidden]{display:block!important}
     .promptbox .pb-body{display:none}
+    .shot{break-inside:avoid;margin-left:0}
     .pb-head::after{content:" — 원문은 화면에서 복사하세요."}
     a{color:#000}
   }
@@ -2015,12 +2029,28 @@ GOOGLE_MAPS_API_KEY
     <ol class="tasks">
       <li><label class="task"><input type="checkbox"><span class="num">01</span><span class="body">
         <b>학교알리미(www.schoolinfo.go.kr)에서 알리미 소식 &gt; OpenAPI &gt; API 이용안내로 이동합니다</b>
-        <span class="d">메뉴 위치가 다르면 홈페이지 검색창에 "OpenAPI"를 넣어 찾습니다.</span>
-      </span></label></li>
+        <span class="d">OpenAPI 화면의 「서비스 바로가기」에서 <b style="display:inline">API 이용안내</b> 아이콘을 누릅니다. 메뉴 위치가 다르면 홈페이지 검색창에 "OpenAPI"를 넣어 찾습니다.</span>
+      </span></label>
+        <figure class="shot">
+          <div class="shot-frame">
+            <img src="images/schoolinfo-home.png" width="1194" height="303" alt="학교알리미 OpenAPI 서비스 바로가기 화면. API 이용안내, 공개용 데이터, 자율공시추천, 자료실, 자주 묻는 질문 아이콘이 있다." loading="lazy">
+            <div class="shot-mark tag-right" style="left:2.3%;top:34%;width:11.2%;height:56%"><span>① 여기를 누르세요</span></div>
+          </div>
+          <figcaption>서비스 바로가기에서 <b>API 이용안내</b>를 누릅니다.</figcaption>
+        </figure>
+      </li>
       <li><label class="task"><input type="checkbox"><span class="num">02</span><span class="body">
         <b>네이버 또는 카카오 계정으로 로그인합니다</b>
-        <span class="d">별도 회원가입 없이 SNS 인증을 사용합니다.</span>
-      </span></label></li>
+        <span class="d">API 이용안내 화면 위쪽의 <b style="display:inline">로그인</b> 탭을 누릅니다. 별도 회원가입 없이 SNS 인증(STEP01)을 사용합니다.</span>
+      </span></label>
+        <figure class="shot">
+          <div class="shot-frame">
+            <img src="images/schoolinfo-api-guide.png" width="1200" height="445" alt="학교알리미 API 이용안내 화면. 위쪽에 API 이용안내, API 제공목록, 로그인 탭이 있고, 아래에 SNS 로그인, 인증키 발급, Open API 세 단계가 그려져 있다." loading="lazy">
+            <div class="shot-mark tag-below" style="left:64.8%;top:3.6%;width:31%;height:12.4%"><span>② 로그인 누르기</span></div>
+          </div>
+          <figcaption>오른쪽 위 <b>로그인</b> 탭을 누른 뒤 네이버·카카오 중 하나로 로그인합니다. 그 다음 인증키 발급(STEP02)으로 이어집니다.</figcaption>
+        </figure>
+      </li>
       <li><label class="task"><input type="checkbox"><span class="num">03</span><span class="body">
         <b>인증키를 신청합니다</b>
         <span class="d">사용자 구분은 화면의 선택지에 맞춰 개인으로, 사용 목적은 "교육·진로상담용 웹앱 개발 및 실습"처럼 사실대로 적습니다.</span>
