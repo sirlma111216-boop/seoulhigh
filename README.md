@@ -14,7 +14,7 @@
 ## 파일
 
 - `index.html` — 안내 페이지 전체. 2단계 복사용 프롬프트 원문도 이 파일의 `#promptText` 안에 들어 있습니다(별도 원본 파일 없음). 외부 의존성은 글꼴(Pretendard) 하나뿐입니다.
-- `images/` — 학교알리미 OpenAPI 화면 캡처(`schoolinfo-*`), AI 스튜디오 GitHub 연동 화면(`github-01`~`08`), Netlify 배포 화면(`netlify-01`~`09`). GitHub·Netlify 캡처는 지진 지도 연수(earthquake.labbitory.com)의 실습 화면을 그대로 가져왔습니다.
+- `images/` — 학교알리미 OpenAPI 화면 캡처(`schoolinfo-*`), AI 스튜디오 시작·프로젝트 화면(`aistudio-01`~`02`), AI 스튜디오 GitHub 연동 화면(`github-01`~`08`), Netlify 배포 화면(`netlify-01`~`09`). AI 스튜디오·GitHub·Netlify 캡처는 지진 지도 연수(earthquake.labbitory.com)의 실습 화면을 그대로 가져왔습니다.
 - `data/seoul-gu.geojson` — 서울 25개 자치구 경계(`kind: "district"`, `sggCode`·`eduOffice` 포함), 11개 교육지원청 외곽선(`kind: "eduOffice"`, 안쪽 경계 제거), 서울 외곽선(`kind: "seoulOutline"`). 생성될 앱이 자기 저장소의 `public/data/`에서 먼저 찾고, 없으면 이 사이트의 파일을 불러옵니다. 안내 페이지 4단계(선택 항목)에서 내려받을 수 있습니다.
 - `_headers` — Cloudflare Pages(또는 Netlify)에서 `/data/*`에 CORS 허용 헤더를 붙입니다. 생성된 앱이 자기 경계 파일을 못 찾을 때 이 사이트의 파일을 대신 불러오기 위해서입니다.
 
